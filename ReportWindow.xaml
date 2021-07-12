@@ -1,0 +1,80 @@
+﻿<Window x:Class="AppointmentsC969_TimothyUpchurch.ReportWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AppointmentsC969_TimothyUpchurch"
+        mc:Ignorable="d"
+        Title="ReportWindow" Height="420" Width="660"
+        FontSize="18"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Background="#f9f9f9"
+        Foreground="#123c69" 
+        MouseDown="DraggableWindow">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition  Width="auto"/>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="1" Grid.Row="1" 
+                   HorizontalAlignment="Left" 
+                   VerticalAlignment="Top" 
+                   Foreground="#123c69" 
+                   FontWeight="Bold"
+                   FontSize="26">
+        Consult.<Run Text="Co" Foreground="#414141"/>
+        </TextBlock>
+        <TextBlock Text="X" Grid.Column="3" Grid.Row="1" 
+                   FontSize="34" HorizontalAlignment="Right" 
+                   VerticalAlignment="Center" Margin="0 -10"
+                   FontWeight="Medium" MouseDown="ExitToDashboard"
+                   Cursor="Hand"/>
+
+        <StackPanel Grid.Row="3" Grid.Column="1">
+            <Label Content="Number of Appointment Types By Month: "/>
+            <ComboBox Margin="45 10" x:Name="selectMonthComboBox" SelectionChanged="HandleTypeSelectionChanged" >
+                <ComboBoxItem Content="January"/>
+                <ComboBoxItem Content="February"/>
+                <ComboBoxItem Content="March"/>
+                <ComboBoxItem Content="April"/>
+                <ComboBoxItem Content="May"/>
+                <ComboBoxItem Content="June"/>
+                <ComboBoxItem Content="July"/>
+                <ComboBoxItem Content="August"/>
+                <ComboBoxItem Content="September"/>
+                <ComboBoxItem Content="October"/>
+                <ComboBoxItem Content="November"/>
+                <ComboBoxItem Content="December"/>
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Grid.Column="1">
+            <Label Content="Schedule By User:"/>
+            <ComboBox Margin="45 10" DisplayMemberPath="UserFirstName"
+                      x:Name="userNameComboBox" SelectionChanged="HandleUserSelectionChanged"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="5" Grid.Column="1">
+            <Label Content="Number of Appointments Per Customer:"/>
+            <ComboBox Margin="45 10" DisplayMemberPath="CustomerName" x:Name="customerNameComboBox" SelectionChanged="HandleCustomerSelectionChanged" />
+        </StackPanel>
+
+    </Grid>
+</Window>
